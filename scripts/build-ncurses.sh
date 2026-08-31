@@ -9,7 +9,7 @@ mkdir -p $W && cd $W
 curl -sL -o ncurses-$VER.tar.gz https://ftp.gnu.org/gnu/ncurses/ncurses-$VER.tar.gz
 tar xf ncurses-$VER.tar.gz && cd ncurses-$VER
 log configure
-./configure --prefix=/usr --build=$TRIPLE --with-shared --without-ada --without-tests --disable-nls --without-cxx-binding --enable-widec --disable-stripping > /tmp/nc.conf.log 2>&1 || exit 1
+./configure --prefix=/usr --build=$TRIPLE --with-shared --without-ada --without-tests --disable-nls --without-cxx-binding --with-shared-only --disable-stripping > /tmp/nc.conf.log 2>&1 || exit 1
 log 编译
 make -j$(nproc) > /tmp/nc.make.log 2>&1 || exit 1
 log 安装
